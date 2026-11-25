@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI for Financial Controlling and Project Management</title>
+<meta name="description" content="Practical AI use cases for financial controlling and project management, with value, tools and a 90-day rollout plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --text:#1c1c1a; --muted:#5f5f5a; --line:#e3e2dd;
+  --accent:#2f6fde; --accent-soft:#e8f0fd; --tint:#efeee9;
+  --low:#1f8a4c; --low-bg:#e5f4ec; --med:#a86400; --med-bg:#fbf0dd;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141413; --surface:#1d1d1b; --text:#ecebe6; --muted:#a3a29b; --line:#33322f;
+    --accent:#6d9cf0; --accent-soft:#1d2a40; --tint:#252522;
+    --low:#5cc98b; --low-bg:#17301f; --med:#e0a24a; --med-bg:#33280f;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.6;font-size:16px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header.hero{padding:72px 0 48px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 16px;letter-spacing:-.02em}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:720px;margin:0}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+nav.toc a{font-size:14px;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,30px);margin:0 0 12px;letter-spacing:-.01em}
+h3{font-size:18px;margin:32px 0 12px}
+p.intro{color:var(--muted);max-width:760px;margin:0 0 24px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:24px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.stat b{display:block;font-size:28px;color:var(--accent);line-height:1.2;margin-bottom:6px}
+.stat span{color:var(--muted);font-size:14px}
+.note{font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.card h4{margin:0;font-size:17px;display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.card p{margin:0;font-size:15px}
+.card .meta{font-size:14px;color:var(--muted)}
+.card .meta strong{color:var(--text);font-weight:600}
+.pill{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.pill.low{color:var(--low);background:var(--low-bg)}
+.pill.med{color:var(--med);background:var(--med-bg)}
+ol.agents{padding-left:20px;margin:0}
+ol.agents li{margin-bottom:10px}
+.callout{background:var(--accent-soft);border-radius:12px;padding:18px 20px;margin-top:24px}
+.callout strong{color:var(--accent)}
+.overlap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.overlap .card{border-top:3px solid var(--accent)}
+.roadmap{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;margin:24px 0}
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.phase.main{border:2px solid var(--accent);background:var(--accent-soft)}
+.phase h4{margin:0;font-size:17px}
+.phase .weeks{color:var(--muted);font-size:14px;margin-bottom:10px}
+.phase ul{margin:0;padding-left:18px;font-size:15px}
+.gate{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:120px;font-size:13px;color:var(--muted)}
+.gate .diamond{width:16px;height:16px;background:var(--muted);transform:rotate(45deg);margin-bottom:10px}
+.gate b{color:var(--text)}
+.guard{background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:14px 20px;text-align:center}
+@media (max-width:760px){
+  .roadmap{grid-template-columns:1fr}
+  .gate{width:auto;flex-direction:row;gap:10px}
+  .gate .diamond{margin:0}
+}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+footer{padding:40px 0 56px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Proposal by Subhankar</p>
+    <h1>How AI can transform financial controlling and project management</h1>
+    <p class="lead">Practical AI use cases that take the routine work out of the close, forecasting, reporting and project tracking, so controllers and project managers can spend their time advising the business.</p>
+    <nav class="toc">
+      <a href="#summary">Summary</a>
+      <a href="#controlling">Financial controlling</a>
+      <a href="#pm">Project management</a>
+      <a href="#overlap">Project controlling</a>
+      <a href="#rollout">90-day rollout</a>
+      <a href="#me">Why me</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="summary">
+  <div class="wrap">
+    <h2>Summary</h2>
+    <p class="intro">Most companies already own the building blocks: an ERP, a project tool, Excel or Power BI, and access to an LLM such as Claude, ChatGPT or Copilot. What they lack is someone who understands finance and project workflows and can turn them into working AI agents quickly and safely.</p>
+    <div class="stats">
+      <div class="stat"><b>20–40%</b><span>less time on the monthly close and reporting cycle</span></div>
+      <div class="stat"><b>Minutes</b><span>to draft variance and status commentary, instead of hours</span></div>
+      <div class="stat"><b>Weeks earlier</b><span>warning on project risks from schedule, cost and team signals</span></div>
+      <div class="stat"><b>90 days</b><span>to have the first agents in daily use</span></div>
+    </div>
+    <p class="note">Impact figures are directional, based on typical vendor and industry reports, and should be validated in a pilot.</p>
+  </div>
+</section>
+
+<section id="controlling">
+  <div class="wrap">
+    <h2>Financial controlling</h2>
+    <p class="intro">The biggest wins are in variance commentary, the close and forecasting, because these repeat every month and run on structured data that already exists.</p>
+    <div class="cards">
+      <div class="card"><h4>Budgeting and planning <span class="pill med">Medium effort</span></h4><p>Builds a first-draft budget from history, drivers and growth assumptions, and runs what-if scenarios in plain language.</p><div class="meta"><strong>Value:</strong> faster cycles, more scenarios tested</div><div class="meta"><strong>Tools:</strong> Anaplan, Pigment, Workday Adaptive, Claude or ChatGPT with Excel</div></div>
+      <div class="card"><h4>Rolling forecasting <span class="pill med">Medium effort</span></h4><p>Machine-learning forecasts of revenue, cost and cash, blended with driver-based models, with an explanation of what moved.</p><div class="meta"><strong>Value:</strong> better accuracy, earlier warning on misses</div><div class="meta"><strong>Tools:</strong> SAP Analytics Cloud, Oracle EPM, Python (Prophet, scikit-learn), Microsoft Fabric</div></div>
+      <div class="card"><h4>Variance analysis <span class="pill low">Low effort</span></h4><p>An agent compares actuals with budget and forecast, finds the top drivers, and drafts the management commentary.</p><div class="meta"><strong>Value:</strong> hours of commentary cut to minutes, consistent explanations</div><div class="meta"><strong>Tools:</strong> LLM agent on ERP or BI extracts, Power BI Copilot, Datarails</div></div>
+      <div class="card"><h4>Month-end close <span class="pill med">Medium effort</span></h4><p>Auto-matches reconciliations, suggests accruals, tracks the close checklist and chases owners.</p><div class="meta"><strong>Value:</strong> shorter close, fewer late adjustments</div><div class="meta"><strong>Tools:</strong> BlackLine, FloQast, Trintech, SAP Joule, custom agents</div></div>
+      <div class="card"><h4>Management reporting <span class="pill low">Low effort</span></h4><p>Generates the monthly pack, board slides and narrative from one data source, and answers ad-hoc questions in natural language.</p><div class="meta"><strong>Value:</strong> self-service for managers, fewer report requests</div><div class="meta"><strong>Tools:</strong> Power BI Copilot, Tableau Pulse, Claude or ChatGPT on the data warehouse</div></div>
+      <div class="card"><h4>Controls and audit <span class="pill med">Medium effort</span></h4><p>Scans every journal entry and payment for anomalies, duplicates and policy breaks, and drafts control evidence.</p><div class="meta"><strong>Value:</strong> earlier fraud and error detection, cheaper audits</div><div class="meta"><strong>Tools:</strong> MindBridge, AppZen, Oversight, Python anomaly models</div></div>
+      <div class="card"><h4>Spend and cost analytics <span class="pill low">Low effort</span></h4><p>Classifies spend, spots savings and contract leakage, and explains cost-centre trends.</p><div class="meta"><strong>Value:</strong> direct cost savings</div><div class="meta"><strong>Tools:</strong> Coupa, SAP Ariba AI, custom LLM classification</div></div>
+    </div>
+    <h3>Three agents worth building first</h3>
+    <ol class="agents">
+      <li><b>Variance commentary agent.</b> Reads the monthly actual-vs-budget extract, ranks the drivers, and drafts commentary for each cost centre. The controller reviews and edits instead of writing from scratch.</li>
+      <li><b>Close copilot.</b> Tracks the close calendar, flags open reconciliations, and sends reminders to owners in Teams or Slack.</li>
+      <li><b>Finance Q&amp;A assistant.</b> Lets managers ask "why is marketing over budget in Q3?" and get an answer grounded in the actual numbers, with links to the source.</li>
+    </ol>
+    <div class="callout"><strong>Rollout path:</strong> pilot on one business unit with exported data and human review of every output, then connect to the ERP or data warehouse with read-only access, then embed in the monthly calendar with a sign-off step and audit log.</div>
+  </div>
+</section>
+
+<section id="pm">
+  <div class="wrap">
+    <h2>Project management</h2>
+    <p class="intro">AI pays off most on status reporting and risk detection. Project managers spend a large share of their week gathering updates and writing reports that an agent can draft from the tools the team already uses.</p>
+    <div class="cards">
+      <div class="card"><h4>Planning and scheduling <span class="pill low">Low effort</span></h4><p>Turns a scope document into a work breakdown, task list and draft schedule, and estimates durations from past projects.</p><div class="meta"><strong>Value:</strong> faster kickoff, more realistic plans</div><div class="meta"><strong>Tools:</strong> MS Project with Copilot, Jira AI, Asana AI, Claude or ChatGPT</div></div>
+      <div class="card"><h4>Status reporting <span class="pill low">Low effort</span></h4><p>An agent reads Jira, Asana, MS Project, Teams and email, then drafts the weekly status report and RAG rating.</p><div class="meta"><strong>Value:</strong> an estimated 2–4 hours a week saved per PM, consistent reporting</div><div class="meta"><strong>Tools:</strong> custom LLM agent, Atlassian Intelligence, Notion AI, Monday AI</div></div>
+      <div class="card"><h4>Risk and issue management <span class="pill med">Medium effort</span></h4><p>Flags slipping tasks, scope creep and negative sentiment in team chatter, and keeps the risk register up to date.</p><div class="meta"><strong>Value:</strong> problems surface weeks earlier</div><div class="meta"><strong>Tools:</strong> custom agents, Jira AI, Planview, Clarity PPM</div></div>
+      <div class="card"><h4>Resource planning <span class="pill med">Medium effort</span></h4><p>Matches people to tasks by skill and availability, and forecasts over- and under-allocation.</p><div class="meta"><strong>Value:</strong> higher utilisation, fewer burnouts</div><div class="meta"><strong>Tools:</strong> Planview, Float, Runn, Python optimisation</div></div>
+      <div class="card"><h4>Meetings and communication <span class="pill low">Low effort</span></h4><p>Transcribes meetings, extracts decisions and action items, and pushes them into the project tool.</p><div class="meta"><strong>Value:</strong> no lost actions, less admin</div><div class="meta"><strong>Tools:</strong> Teams Copilot, Zoom AI, Otter, Fireflies</div></div>
+      <div class="card"><h4>Portfolio prioritisation <span class="pill med">Medium effort</span></h4><p>Scores projects on value, cost, risk and strategic fit, and runs scenarios for the portfolio board.</p><div class="meta"><strong>Value:</strong> better investment decisions</div><div class="meta"><strong>Tools:</strong> Planview, ServiceNow SPM, custom scoring models</div></div>
+      <div class="card"><h4>Knowledge and lessons learned <span class="pill low">Low effort</span></h4><p>A searchable assistant over past project files, so new PMs can ask "how did we handle vendor delays last time?"</p><div class="meta"><strong>Value:</strong> fewer repeated mistakes, faster onboarding</div><div class="meta"><strong>Tools:</strong> Claude Projects, ChatGPT Enterprise, Glean, SharePoint Copilot</div></div>
+    </div>
+    <h3>Three agents worth building first</h3>
+    <ol class="agents">
+      <li><b>Weekly status agent.</b> Pulls updates from Jira or MS Project and Teams, drafts the status report, and suggests the RAG rating with reasons.</li>
+      <li><b>Risk radar.</b> Watches schedule slippage, budget burn and open issues, and alerts the PM before a project turns red.</li>
+      <li><b>Meeting-to-actions agent.</b> Converts meeting transcripts into tasks with owners and dates in the project tool.</li>
+    </ol>
+    <div class="callout"><strong>Rollout path:</strong> start with one project team and read-only connections, have the PM review every draft for 4 to 6 weeks, then extend across the portfolio with a standard report template.</div>
+  </div>
+</section>
+
+<section id="overlap">
+  <div class="wrap">
+    <h2>Where finance and projects meet: project controlling</h2>
+    <p class="intro">The strongest opportunity sits between the two functions, because project costs, schedules and forecasts usually live in separate systems that nobody reconciles in real time.</p>
+    <div class="overlap">
+      <div class="card"><h4>Earned value on autopilot</h4><p>Combines timesheets, purchase orders and ERP actuals with progress from the project tool, and calculates CPI, SPI and estimate-at-completion every week instead of every quarter.</p></div>
+      <div class="card"><h4>Project cost forecasting</h4><p>Predicts final cost and margin per project from burn rate and similar past projects, and flags overruns early.</p></div>
+      <div class="card"><h4>Capex and WIP tracking</h4><p>Classifies project spend as capex or opex, and tracks work in progress and revenue recognition against milestones.</p></div>
+      <div class="card"><h4>One narrative, two audiences</h4><p>The same agent drafts the steering-committee status and the controller's financial commentary, so the numbers always match.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="rollout">
+  <div class="wrap">
+    <h2>90-day rollout</h2>
+    <p class="intro">First agents in daily use within 90 days, with two go/no-go gates so nothing scales before it proves its value.</p>
+    <div class="roadmap">
+      <div class="phase"><h4>1. Discover</h4><div class="weeks">Weeks 1 to 3</div><ul><li>Pick 2 to 3 use cases</li><li>Map data in ERP and PM tools</li><li>Baseline hours and close days</li></ul></div>
+      <div class="gate"><div class="diamond"></div><div><b>Gate 1</b><br>Data access and baseline agreed</div></div>
+      <div class="phase main"><h4>2. Pilot</h4><div class="weeks">Weeks 4 to 8</div><ul><li>Build variance and status agents on exported data</li><li>Review every output by hand</li></ul></div>
+      <div class="gate"><div class="diamond"></div><div><b>Gate 2</b><br>Time saved, accuracy signed off</div></div>
+      <div class="phase"><h4>3. Scale</h4><div class="weeks">Weeks 9 to 13</div><ul><li>Connect ERP and PM tools read-only</li><li>Embed in the monthly calendar</li><li>Train controllers and PMs</li></ul></div>
+    </div>
+    <div class="guard">Throughout: human review, read-only access first, audit log, data privacy</div>
+    <h3>Success measures</h3>
+    <p>Hours saved per month, close duration in days, forecast error, report turnaround time, and user adoption. No AI output posts to the ledger or goes to leadership without human sign-off, and sensitive data stays inside approved enterprise tools.</p>
+  </div>
+</section>
+
+<section id="me">
+  <div class="wrap">
+    <h2>How I would lead this</h2>
+    <p class="intro">I build AI agents and rapid prototypes hands-on, so I can take these use cases from idea to working pilot in weeks, without waiting on a large IT project.</p>
+    <div class="profile">
+      <div class="card"><h4>Builder, not just advisor</h4><p>Hands-on experience building AI agents and using AI-assisted coding to ship working prototypes fast.</p></div>
+      <div class="card"><h4>Speaks both languages</h4><p>Translates between controllers, PMs and technical teams, and frames AI work in close days, forecast accuracy and hours saved.</p></div>
+      <div class="card"><h4>Proof before scale</h4><p>Starts with small, measurable pilots on existing data, and scales only what demonstrably works.</p></div>
+      <div class="card"><h4>Safe by design</h4><p>Humans in the loop, read-only data access first, and audit trails so finance controls and compliance stay intact.</p></div>
+    </div>
+    <div class="callout"><strong>Role I can fill:</strong> AI Lead for Finance and Project Controlling, owning the AI roadmap for the controlling and PMO teams, building the first agents, and training the teams to use them.</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Prepared by Subhankar · November 2026</div>
+</footer>
+</body>
+</html>
